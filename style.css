@@ -1,0 +1,37 @@
+body{
+    background-color: beige;
+}
+
+div {
+    height: 100px;
+    width: 300px;
+    text-align: center;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#block1 {
+    background: radial-gradient(yellow,red);
+    left: 10%;
+    position: absolute;
+    border-radius: 10% 40% 40% 40%;
+}
+
+#block2 {
+    border-radius: 30%;
+    background: radial-gradient(gold,silver);
+    left: 40%;
+    font-style: italic;
+    font-size: 20px;
+    position: absolute;
+}
+
+#block3 {
+    border-radius: 10%;
+    background: radial-gradient(skyblue,royalblue);
+    left: 70%;
+    font-size: 18px;
+    position: absolute;
+}
