@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="main">
+    <input type="text" title="Enter numbers here" placeholder="Enter numbers here" id="input">
+    <div class="line">
+        <input type="button" class="button" value="C"/>
+        <input type="button" class="button" value="<-"/>
+        <input type="button" class="button" value="^"/>
+        <input type="button" class="button" value="/"/>
+    </div>
+    <div class="line">
+        <input type="button" class="button" value="7" onclick="numberOnClick(7)"/>
+        <input type="button" class="button" value="8" onclick="numberOnClick(8)"/>
+        <input type="button" class="button" value="9" onclick="numberOnClick(9)"/>
+        <input type="button" class="button" value="*"/>
+    </div>
+    <div class="line">
+        <input type="button" class="button number" value="4" onclick="numberOnClick(4)"/>
+        <input type="button" class="button number" value="5" onclick="numberOnClick(5)"/>
+        <input type="button" class="button number" value="6" onclick="numberOnClick(6)"/>
+        <input type="button" class="button" value="-"/>
+    </div>
+    <div class="line">
+        <input type="button" class="button number" value="1" onclick="numberOnClick(1)"/>
+        <input type="button" class="button number" value="2" onclick="numberOnClick(2)"/>
+        <input type="button" class="button number" value="3" onclick="numberOnClick(3)"/>
+        <input type="button" class="button" value="+"/>
+    </div>
+    <div class="line">
+        <input type="button" class="button number" value="±"/>
+        <input type="button" class="button number" value="0" onclick="numberOnClick(0)"/>
+        <input type="button" class="button number" value="." onclick="numberOnClick('.')"/>
+        <input type="button" class="button" value="="/>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

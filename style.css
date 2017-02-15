@@ -1,0 +1,28 @@
+.main {
+    margin-left: 3%;
+    width: 300px;
+}
+
+input {
+    width: 100%;
+}
+
+div{
+    margin-top: 1%;
+}
+
+.number {
+
+}
+
+.button{
+    flex-grow: 1;
+    flex-basis: inherit;
+    width: auto;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
