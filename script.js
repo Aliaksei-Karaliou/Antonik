@@ -13,7 +13,6 @@ input.oninput = function () {
 
 function onNumberClick(number) {
     var value = input.value + number.toString().replace(/^0+/, '');
-    alert(value);
     if (isNumber(value)) {
         input.value = value;
     }
@@ -21,6 +20,17 @@ function onNumberClick(number) {
 
 function onPlus() {
     alert("Plus");
+}
+
+function deleteLast() {
+    input.value = input.value.substring(0, input.value.length - 1);
+    if (input.value.length == 0) {
+        input.value = 0;
+    }
+}
+
+function deleteAll() {
+    input.value = 0;
 }
 
 function isNumber(possibleNumber) {
