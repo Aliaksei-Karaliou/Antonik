@@ -47,7 +47,7 @@ function isNumber(possibleNumber) {
 }
 
 function makeNumberGreatAgain(number) {
-    return parseFloat(number).toFixed(13).replace(/0+$/, '');
+    return parseFloat(number).toFixed(13).replace(/0+$/, '').replace(/\.$/, '');
 }
 
 
