@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="calculator">
-    <input type="text" id="input_line" title="">
+    <input type="text" id="input_line" title="" readonly="readonly" maxlength="16">
     <div class="line">
         <button>%</button>
         <button>√</button>
@@ -15,9 +15,9 @@
         <button><sup>1</sup>&frasl;<sub>x</sub></button>
     </div>
     <div class="line">
-        <button>C</button>
-        <button>→</button>
-        <button>←</button>
+        <button id="clear">C</button>
+        <button id="delete_first">→</button>
+        <button id="delete_last">←</button>
         <button>&divide</button>
     </div>
     <div class="line">
@@ -39,12 +39,13 @@
         <button>+</button>
     </div>
     <div class="line">
-        <button>±</button>
-        <button>0</button>
-        <button>.</button>
+        <button id="plusminus">±</button>
+        <button id="0">0</button>
+        <button id=".">.</button>
         <button>=</button>
     </div>
-    <script src="script.js"></script>
+    <script src="onClickHandlers.js"></script>
+    <script src="init.js"></script>
 </div>
 </body>
 </html>

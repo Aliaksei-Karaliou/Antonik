@@ -6,7 +6,7 @@
 input {
     width: inherit;
     text-align: right;
-    font-size: 50px;
+    font-size: 60px;
     border: none;
 }
 
@@ -19,7 +19,7 @@ button {
     margin: auto;
     background: transparent;
     border: none;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     width: 100%;
 }
