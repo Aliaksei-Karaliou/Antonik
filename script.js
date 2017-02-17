@@ -1,38 +1,20 @@
-var input = document.getElementById("input");
-var temp = null;
+var numbers = [
+    document.getElementById("1"),
+    document.getElementById("2"),
+    document.getElementById("3"),
+    document.getElementById("4"),
+    document.getElementById("5"),
+    document.getElementById("6"),
+    document.getElementById("7"),
+    document.getElementById("8"),
+    document.getElementById("9"),
+    document.getElementById("0")
+];
 
-input.oninput = function () {
-    if (!isNumber(input.value)) {
-        var deleted = input.value.substring(input.value.length - 1);
-        input.value = input.value.substring(0, input.value.length - 1);
-        if (deleted == '+') {
-            onPlus();
-        }
-    }
-};
+var input = document.getElementById("input_line");
 
-function onNumberClick(number) {
-    var value = input.value + number.toString().replace(/^0+/, '');
-    if (isNumber(value)) {
-        input.value = value;
-    }
-}
-
-function onPlus() {
-    alert("Plus");
-}
-
-function deleteLast() {
-    input.value = input.value.substring(0, input.value.length - 1);
-    if (input.value.length == 0) {
-        input.value = 0;
-    }
-}
-
-function deleteAll() {
-    input.value = 0;
-}
-
-function isNumber(possibleNumber) {
-    return possibleNumber === parseFloat(possibleNumber).toString();
-}
+numbers.forEach(function (item, i, numbers) {
+    item.onclick = new function () {
+        Console.log(item.value);
+    };
+});

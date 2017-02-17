@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <meta charset="UTF-8">
     <title>Lab 4</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="main">
-    <input type="text" title="Enter numbers here" placeholder="Enter numbers here" id="input">
+<div class="calculator">
+    <input type="text" id="input_line" title="">
     <div class="line">
-        <input type="button" class="button" value="C"  onclick="deleteAll()"/>
-        <input type="button" class="button" value="<-" onclick="deleteLast()"/>
-        <input type="button" class="button" value="^"/>
-        <input type="button" class="button" value="/"/>
+        <button>%</button>
+        <button>√</button>
+        <button>x<sup>2</sup></button>
+        <button><sup>1</sup>&frasl;<sub>x</sub></button>
     </div>
     <div class="line">
-        <input type="button" class="button" value="7" onclick="onNumberClick(7)"/>
-        <input type="button" class="button" value="8" onclick="onNumberClick(8)"/>
-        <input type="button" class="button" value="9" onclick="onNumberClick(9)"/>
-        <input type="button" class="button" value="*"/>
+        <button>C</button>
+        <button>→</button>
+        <button>←</button>
+        <button>&divide</button>
     </div>
     <div class="line">
-        <input type="button" class="button number" value="4" onclick="onNumberClick(4)"/>
-        <input type="button" class="button number" value="5" onclick="onNumberClick(5)"/>
-        <input type="button" class="button number" value="6" onclick="onNumberClick(6)"/>
-        <input type="button" class="button" value="-"/>
+        <button id="7">7</button>
+        <button id="8">8</button>
+        <button id="9">9</button>
+        <button>x</button>
     </div>
     <div class="line">
-        <input type="button" class="button number" value="1" onclick="onNumberClick(1)"/>
-        <input type="button" class="button number" value="2" onclick="onNumberClick(2)"/>
-        <input type="button" class="button number" value="3" onclick="onNumberClick(3)"/>
-        <input type="button" class="button" value="+" onclick="onPlus()"/>
+        <button id="4">4</button>
+        <button id="5">5</button>
+        <button id="6">6</button>
+        <button>-</button>
     </div>
     <div class="line">
-        <input type="button" class="button number" value="±"/>
-        <input type="button" class="button number" value="0" onclick="onNumberClick(0)"/>
-        <input type="button" class="button number" value="." onclick="onNumberClick('.')"/>
-        <input type="button" class="button" value="="/>
+        <button id="1">1</button>
+        <button id="2">2</button>
+        <button id="3">3</button>
+        <button>+</button>
     </div>
+    <div class="line">
+        <button>±</button>
+        <button>0</button>
+        <button>.</button>
+        <button>=</button>
+    </div>
+    <script src="script.js"></script>
 </div>
-<script src="script.js"></script>
 </body>
 </html>

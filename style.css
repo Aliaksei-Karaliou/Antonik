@@ -1,28 +1,29 @@
-.main {
-    margin-left: 3%;
-    width: 300px;
+.calculator {
+    width: 500px;
+    border: solid;
 }
 
 input {
-    width: 100%;
-}
-
-div{
-    margin-top: 1%;
-}
-
-.number {
-
-}
-
-.button{
-    flex-grow: 1;
-    flex-basis: inherit;
-    width: auto;
+    width: inherit;
+    text-align: right;
+    font-size: 50px;
+    border: none;
 }
 
 .line {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    align-content: space-around;
+}
+
+button {
+    margin: auto;
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+button:hover {
+    background: lightgray;
 }
