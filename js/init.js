@@ -16,6 +16,7 @@ for (var i = 0; i < numbersAndDot.length; i++) {
     numbersAndDot[i].addEventListener('click', onNumberClick);
 }
 var input = document.getElementById("input_line");
+input.value = "0";
 
 var deleteFirstButton = document.getElementById("delete_first");
 deleteFirstButton.onclick = deleteFirst;
@@ -28,3 +29,7 @@ clearButton.onclick = clear;
 
 var plusMinusButton = document.getElementById("plusminus");
 plusMinusButton.onclick = plusMinus;
+
+var inverseNumberButton = document.getElementById("inverse_number");
+inverseNumberButton.onclick = inverseNumber;
+

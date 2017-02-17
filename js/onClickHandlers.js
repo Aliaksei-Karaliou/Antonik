@@ -1,7 +1,17 @@
 function onNumberClick(event) {
     var button = event.currentTarget;
-    if (input.value.length < 16) {
-        input.value += button.textContent;
+    var temp;
+    if (finalize) {
+        finalize = false;
+        temp = button.textContent;
+    } else {
+        temp = input.value + button.textContent;
+    }
+    if (isNumber(temp) && temp.length < 16) {
+        input.value = temp;
+    }
+    if (input.value.substring(0, 1) == "0" && input.value.substring(1, 2) != ".") {
+        deleteFirst();
     }
 }
 
@@ -32,3 +42,8 @@ function plusMinus() {
         deleteFirst();
     }
 }
+
+function isNumber(possibleNumber) {
+    return parseFloat(possibleNumber) == possibleNumber;
+}
+
