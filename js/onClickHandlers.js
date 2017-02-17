@@ -1,23 +1,20 @@
+var maxNumberLength = 13;
+
 function onNumberClick(event) {
     var button = event.currentTarget;
     var temp;
     if (finalize) {
+        clear();
         finalize = false;
-        temp = button.textContent;
-    } else {
-        temp = input.value + button.textContent;
     }
-    if (isNumber(temp) && temp.length < 16) {
+    temp = input.value + button.textContent;
+    if (isNumber(temp) && temp.length < maxNumberLength) {
         input.value = temp;
     }
     if (input.value.substring(0, 1) == "0" && input.value.substring(1, 2) != ".") {
-        deleteFirst();
+        input.value = input.value.substring(1, input.value.length);
+        emptyInputCheck();
     }
-}
-
-function deleteFirst() {
-    input.value = input.value.substring(1, input.value.length);
-    emptyInputCheck();
 }
 
 function deleteLast() {
@@ -35,11 +32,17 @@ function clear() {
     input.value = "0";
 }
 
+function clearAll() {
+    input.value = "0";
+    firstValue = true;
+    finalize = false;
+}
+
 function plusMinus() {
     if (input.value.substring(0, 1) != "-") {
         input.value = "-" + input.value;
     } else {
-        deleteFirst();
+        clearAll();
     }
 }
 
