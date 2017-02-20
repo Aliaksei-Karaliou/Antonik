@@ -16,44 +16,38 @@ function square() {
     input.value = makeNumberGreatAgain(input.value * input.value);
 }
 
-function plus() {
+function abstractCalculation(action) {
     if (firstValue != null) {
-        if (isNumber(firstValue) && parseFloat(input.value)) {
-            var temp = parseFloat(input.value);
-            console.log(firstValue + " " + temp + " " + finalize);
-            input.value = parseFloat(firstValue) + temp;
-            if (!finalize) {
-                firstValue = temp;
-            }
+        var temp = input.value;
+        console.log(input.value, firstValue, finalize);
+        input.value = action(temp, firstValue);
+        if (!finalize) {
+            firstValue = temp;
         }
-        else {
-            alert("Unknown error");
-            return;
-        }
-    } else {
+    }
+    else {
         firstValue = input.value;
     }
+    console.log(input.value, firstValue, finalize);
     finalize = true;
 }
 
+function add() {
+    abstractCalculation(function (a, b) {
+        return parseFloat(a) + parseFloat(b);
+    });
+}
+
 function minus() {
-    if (firstValue != null) {
-        if (isNumber(firstValue) && isNumber(input.value)) {
-            var temp = parseFloat(input.value);
-            console.log(firstValue + " " + temp + " " + finalize);
-            input.value = parseFloat(firstValue) - temp;
-            if (!finalize) {
-                firstValue = temp;
-            }
-        }
-        else {
-            alert("Unknown error");
-            return;
-        }
-    } else {
-        firstValue = input.value;
-    }
-    finalize = true;
+    abstractCalculation(function (a, b) {
+        return parseFloat(a) - parseFloat(b);
+    })
+}
+
+function multiply() {
+    abstractCalculation(function (a, b) {
+        return parseFloat(a) * parseFloat(b);
+    })
 }
 
 function makeNumberGreatAgain(number) {

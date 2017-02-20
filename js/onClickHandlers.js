@@ -6,6 +6,7 @@ function onNumberClick(event) {
     if (finalize) {
         clear();
         finalize = false;
+        firstValue = null;
     }
     temp = input.value + button.textContent;
     if (isNumber(temp) && temp.length < maxNumberLength) {

@@ -41,7 +41,10 @@ var squareButton = document.getElementById("square");
 squareButton.onclick = square;
 
 var plusButton = document.getElementById("plus");
-plusButton.onclick = plus;
+plusButton.onclick = add;
 
 var minusButton = document.getElementById("minus");
 minusButton.onclick = minus;
+
+var multiplyButton = document.getElementById("multiply");
+multiplyButton.onclick = multiply;
