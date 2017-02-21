@@ -40,6 +40,9 @@ squareRootButton.onclick = squareRoot;
 var squareButton = document.getElementById("square");
 squareButton.onclick = square;
 
+var equalsButton = document.getElementById("equals");
+equalsButton.onclick = equals;
+
 var plusButton = document.getElementById("plus");
 plusButton.onclick = add;
 
@@ -48,3 +51,22 @@ minusButton.onclick = minus;
 
 var multiplyButton = document.getElementById("multiply");
 multiplyButton.onclick = multiply;
+
+var divideButton = document.getElementById("divide");
+divideButton.onclick = divide;
+
+var factorialButton = document.getElementById("fact");
+factorialButton.onclick = fact;
+
+var sinusButton = document.getElementById("sin");
+sinusButton.onclick = sin;
+
+var cosinusButton = document.getElementById("cos");
+cosinusButton.onclick = cos;
+
+var tangensButton = document.getElementById("tg");
+tangensButton.onclick = tg;
+
+var cotangensButton = document.getElementById("ctg");
+cotangensButton.onclick = ctg;
+
