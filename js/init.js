@@ -17,7 +17,12 @@ for (var i = 0; i < numbersAndDot.length; i++) {
 }
 
 var input = document.getElementById("input_line");
-input.value = "0";
+input.value = 0;
+// Object.defineProperty(input, "value", {
+//     set: function (v) {
+//         alert(v);
+//     }
+// });
 
 var deleteLastButton = document.getElementById("delete_last");
 deleteLastButton.onclick = deleteLast;

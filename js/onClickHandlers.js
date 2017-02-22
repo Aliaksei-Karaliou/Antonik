@@ -16,8 +16,10 @@ function onNumberClick(event) {
 }
 
 function deleteLast() {
-    input.value = input.value.substring(0, input.value.length - 1);
-    emptyInputCheck();
+    if (!input.value.includes("e")) {
+        input.value = input.value.substring(0, input.value.length - 1);
+        emptyInputCheck();
+    }
 }
 
 function emptyInputCheck() {
@@ -37,14 +39,20 @@ function clearAll() {
 }
 
 function plusMinus() {
-    if (input.value.substring(0, 1) != "-") {
-        input.value = "-" + input.value;
-    } else {
-        clearAll();
+    if (input.value != "0") {
+        if (input.value.substring(0, 1) != "-") {
+            input.value = "-" + input.value;
+        } else {
+            input.value = input.value.substring(1, input.value.length);
+        }
     }
 }
 
 function isNumber(possibleNumber) {
     return parseFloat(possibleNumber) == possibleNumber;
+}
+
+function checkInput() {
+    alert("Ok")
 }
 

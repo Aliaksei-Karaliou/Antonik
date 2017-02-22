@@ -84,7 +84,11 @@ function intFact(number) {
 }
 
 function fact() {
-    var int = Math.floor(parseFloat(input.value));
+    var value = parseFloat(input.value);
+    if (value < 0) {
+        input.value = NaN;
+    }
+    var int = Math.floor(value);
     var fractal = parseFloat(makeNumberGreatAgain(input.value - int));
     var message = Math.log10(intFact(int)) + fractal * Math.log10(int + 1);
     input.value = makeNumberGreatAgain(Math.pow(10, message));

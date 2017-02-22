@@ -13,7 +13,6 @@ input {
 
 .line {
     display: flex;
-    align-content: space-around;
 }
 
 button {
