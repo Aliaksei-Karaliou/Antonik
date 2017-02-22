@@ -7,14 +7,14 @@ button.onclick = function () {
         argument1 = parseFloat(document.getElementById("arg1").value);
     }
     else {
-        alert("Argument 1 is not number");
+        button.value = "Argument 1 is not number";
         return;
     }
     if (isNumber(document.getElementById("arg2").value)) {
         argument2 = parseFloat(document.getElementById("arg2").value);
     }
     else {
-        alert("Argument 2 is not number");
+        button.value = "Argument 2 is not number";
         return;
     }
 
@@ -36,7 +36,7 @@ button.onclick = function () {
             button.value = argument1 % argument2;
             break;
         default:
-            alert("Sign is not valid");
+            button.value = "Sign is not valid";
             break;
     }
 
