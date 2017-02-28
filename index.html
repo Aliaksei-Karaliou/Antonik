@@ -6,10 +6,16 @@
 
 </head>
 <body>
-<input type="text" title="Argument 1" placeholder="Argument 1" id="arg1">
-<input type="text" title="Sign" placeholder="Sign" maxlength="1" id="sign">
-<input type="text" title="Argument 2" placeholder="Argument 2" id="arg2">
-<input type="button" title="result" value="Result" id="result"/>
+<button id="arg1">First Argument</button>
+<select id="operations">
+    <option value=""></option>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+</select>
+<input type="text" placeholder="Second Argument" id="arg2">
 <script src="script.js"></script>
 </body>
 </html>

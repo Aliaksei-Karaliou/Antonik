@@ -1,47 +1,40 @@
-var button = document.getElementById("result");
+const firstArgument = document.getElementById('arg1');
+const secondArgument = document.getElementById('arg2');
+const operations = document.getElementById('operations');
 
-button.onclick = function () {
-
-    var argument1, argument2;
-    if (isNumber(document.getElementById("arg1").value)) {
-        argument1 = parseFloat(document.getElementById("arg1").value);
-    }
-    else {
-        button.value = "Argument 1 is not number";
-        return;
-    }
-    if (isNumber(document.getElementById("arg2").value)) {
-        argument2 = parseFloat(document.getElementById("arg2").value);
-    }
-    else {
-        button.value = "Argument 2 is not number";
-        return;
-    }
-
-    var sign = document.getElementById("sign").value;
-    switch (sign) {
-        case "+":
-            button.value = makeNumberGreatAgain(argument1 + argument2);
-            break;
-        case "-":
-            button.value = makeNumberGreatAgain(argument1 - argument2);
-            break;
-        case "*":
-            button.value = makeNumberGreatAgain(argument1 * argument2);
-            break;
-        case "/":
-            button.value = makeNumberGreatAgain(argument1 / argument2);
-            break;
-        case "%":
-            button.value = argument1 % argument2;
-            break;
-        default:
-            button.value = "Sign is not valid";
-            break;
-    }
-
+firstArgument.onclick = function () {
+    var firstValue = prompt('Input first argument', '');
+    firstArgument.innerHTML = firstValue;
 };
+operations.onchange = function () {
+    var result="Sign is not valid";
+    if (!isNumber(firstArgument.innerHTML)) {
+        result = "Argument 1 is not valid";
+    } else if (!isNumber(secondArgument.value)) {
+        result = "Argument 2 is not valid";
+    } else if (operations.value === "+") {
+        result = makeNumberGreatAgain(parseFloat(firstArgument.innerHTML) + parseFloat(secondArgument.value));
+    } else if (operations.value === "-") {
+        result = makeNumberGreatAgain(parseFloat(firstArgument.innerHTML) - parseFloat(secondArgument.value));
+    } else if (operations.value === "*") {
+        result = makeNumberGreatAgain(parseFloat(firstArgument.innerHTML) * parseFloat(secondArgument.value));
+    } else if (operations.value === "/") {
+        if (parseFloat(secondArgument.value) == 0) {
+            result = "Dividing by zero!";
+        }
+        else
+        result = makeNumberGreatAgain(parseFloat(firstArgument.innerHTML) / parseFloat(secondArgument.value));
+    } else if (operations.value === "%") {
+        if (parseFloat(secondArgument.value) == 0) {
+            result = "Dividing by zero!";
+        }
+        else
+        result = makeNumberGreatAgain(parseFloat(firstArgument.innerHTML) % parseFloat(secondArgument.value));
+    }
+    var newWin = window.open("about:blank", "hello", "width=200,height=200");
 
+    newWin.document.write(result)
+};
 function isNumber(possibleNumber) {
     return possibleNumber === parseFloat(possibleNumber).toString();
 }
