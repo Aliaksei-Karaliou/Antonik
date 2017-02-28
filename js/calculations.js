@@ -4,94 +4,92 @@ const MINUS_SIGN = 1;
 const MULTIPLY_SIGN = 2;
 const DIVIDE_SIGN = 3;
 
-var finalize = false;
-var firstValue = null;
-var sign = EMPTY_SIGN;
+let finalize = false;
+let firstValue = null;
+let secondValue = null;
+let sign = EMPTY_SIGN;
 
 
 function inverseNumber() {
-    input.value = makeNumberGreatAgain((1 / input.value));
+    setInputValue((1 / getInputValue()));
     finalize = true;
 }
 
 function squareRoot() {
-    input.value = makeNumberGreatAgain(Math.sqrt(input.value));
+    setInputValue(Math.sqrt(getInputValue()));
     finalize = true;
 }
 
 function square() {
-    input.value = makeNumberGreatAgain(input.value * input.value);
+    setInputValue(getInputValue() * getInputValue());
     finalize = true;
 }
 
 function add() {
-    firstValue = input.value;
+    firstValue = getInputValue();
     sign = PLUS_SIGN;
     finalize = true;
 }
 
 function minus() {
-    firstValue = input.value;
+    firstValue = getInputValue();
     sign = MINUS_SIGN;
     finalize = true;
 }
 
 function multiply() {
-    firstValue = input.value;
+    firstValue = getInputValue();
     sign = MULTIPLY_SIGN;
     finalize = true;
 }
 
 function divide() {
-    firstValue = input.value;
+    firstValue = getInputValue();
     sign = DIVIDE_SIGN;
     finalize = true;
 }
 
 function equals() {
-    var number = parseFloat(input.value);
-    if (sign == PLUS_SIGN) {
-        input.value = makeNumberGreatAgain(parseFloat(firstValue) + number);
-    } else if (sign == MINUS_SIGN) {
-        if (!finalize) {
-            input.value = makeNumberGreatAgain(parseFloat(firstValue) - number);
-        } else {
-            input.value = makeNumberGreatAgain(number - parseFloat(firstValue));
+    if (firstValue != null) {
+        if (secondValue == null) {
+            secondValue = getInputValue();
+        } else if (finalize) {
+            firstValue = getInputValue();
         }
-    } else if (sign == MULTIPLY_SIGN) {
-        input.value = makeNumberGreatAgain(parseFloat(firstValue) * number);
-    } else if (sign == DIVIDE_SIGN) {
-        if (!finalize) {
-            input.value = makeNumberGreatAgain(parseFloat(firstValue) / number);
-        } else {
-            input.value = makeNumberGreatAgain(number / parseFloat(firstValue));
+        let result;
+        if (sign == PLUS_SIGN) {
+            result = parseFloat(firstValue) + parseFloat(secondValue);
+        } else if (sign == MINUS_SIGN) {
+            result = parseFloat(firstValue) - parseFloat(secondValue);
+        } else if (sign == MULTIPLY_SIGN) {
+            result = parseFloat(firstValue) * parseFloat(secondValue);
+        } else if (sign == DIVIDE_SIGN) {
+            result = parseFloat(firstValue) / parseFloat(secondValue);
         }
-    } else {
-        sign = EMPTY_SIGN;
+        firstValue = result;
+        setInputValue(result);
+        finalize = true;
     }
-    if (!finalize) {
-        firstValue = number;
-    }
-    finalize = true;
 }
 
 function intFact(number) {
-    var result = 1;
-    for (var i = 2; i <= number; i++) {
+    let result = 1;
+    for (let i = 2; i <= number; i++) {
         result *= i;
     }
     return makeNumberGreatAgain(result);
 }
 
 function fact() {
-    var value = parseFloat(input.value);
+    let value = parseFloat(getInputValue());
     if (value < 0) {
-        input.value = NaN;
+        setInputValue(Infinity);
+        return;
     }
-    var int = Math.floor(value);
-    var fractal = parseFloat(makeNumberGreatAgain(input.value - int));
-    var message = Math.log10(intFact(int)) + fractal * Math.log10(int + 1);
-    input.value = makeNumberGreatAgain(Math.pow(10, message));
+    let int = Math.floor(value);
+    let fractal = parseFloat(makeNumberGreatAgain(getInputValue() - int));
+    let message = Math.log10(intFact(int)) + fractal * Math.log10(int + 1);
+    setInputValue(Math.pow(10, message));
     finalize = true;
 }
 
@@ -100,24 +98,34 @@ function degreeToRadian(degree) {
 }
 
 function sin() {
-    input.value = makeNumberGreatAgain(Math.sin(degreeToRadian(input.value)));
+    setInputValue(Math.sin(degreeToRadian(getInputValue())));
     finalize = true;
 }
 
 function cos() {
-    input.value = makeNumberGreatAgain(Math.cos(degreeToRadian(input.value)));
+    setInputValue(Math.cos(degreeToRadian(getInputValue())));
     finalize = true;
 }
 
 
 function tg() {
-    input.value = makeNumberGreatAgain(Math.tan(degreeToRadian(input.value)));
+    setInputValue(Math.tan(degreeToRadian(getInputValue())));
     finalize = true;
 }
 
 function ctg() {
-    input.value = makeNumberGreatAgain(1 / Math.tan(degreeToRadian(input.value)));
+    setInputValue(1 / Math.tan(degreeToRadian(getInputValue())));
     finalize = true;
+}
+
+function percent() {
+    if (firstValue == null) {
+        setInputValue(0);
+    } else {
+        secondValue = firstValue * getInputValue() / 100;
+        setInputValue(secondValue);
+        console.log(firstValue, secondValue);
+    }
 }
 
 function makeNumberGreatAgain(number) {

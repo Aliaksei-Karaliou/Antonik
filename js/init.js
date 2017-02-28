@@ -1,4 +1,4 @@
-var numbersAndDot = [
+const numbersAndDot = [
     document.getElementById("1"),
     document.getElementById("2"),
     document.getElementById("3"),
@@ -12,11 +12,11 @@ var numbersAndDot = [
     document.getElementById(".")
 ];
 
-for (var i = 0; i < numbersAndDot.length; i++) {
+for (let i = 0; i < numbersAndDot.length; i++) {
     numbersAndDot[i].addEventListener('click', onNumberClick);
 }
 
-var input = document.getElementById("input_line");
+const input = document.getElementById("input_line");
 input.value = 0;
 // Object.defineProperty(input, "value", {
 //     set: function (v) {
@@ -24,54 +24,56 @@ input.value = 0;
 //     }
 // });
 
-var deleteLastButton = document.getElementById("delete_last");
+const deleteLastButton = document.getElementById("delete_last");
 deleteLastButton.onclick = deleteLast;
 
-var clearButton = document.getElementById("clear");
+const clearButton = document.getElementById("clear");
 clearButton.onclick = clear;
 
-var clearAllButton = document.getElementById("clear_all");
+const clearAllButton = document.getElementById("clear_all");
 clearAllButton.onclick = clearAll;
 
-var plusMinusButton = document.getElementById("plusminus");
+const plusMinusButton = document.getElementById("plusminus");
 plusMinusButton.onclick = plusMinus;
 
-var inverseNumberButton = document.getElementById("inverse");
+const inverseNumberButton = document.getElementById("inverse");
 inverseNumberButton.onclick = inverseNumber;
 
-var squareRootButton = document.getElementById("square_root");
+const squareRootButton = document.getElementById("square_root");
 squareRootButton.onclick = squareRoot;
 
-var squareButton = document.getElementById("square");
+const squareButton = document.getElementById("square");
 squareButton.onclick = square;
 
-var equalsButton = document.getElementById("equals");
+const equalsButton = document.getElementById("equals");
 equalsButton.onclick = equals;
 
-var plusButton = document.getElementById("plus");
+const plusButton = document.getElementById("plus");
 plusButton.onclick = add;
 
-var minusButton = document.getElementById("minus");
+const minusButton = document.getElementById("minus");
 minusButton.onclick = minus;
 
-var multiplyButton = document.getElementById("multiply");
+const multiplyButton = document.getElementById("multiply");
 multiplyButton.onclick = multiply;
 
-var divideButton = document.getElementById("divide");
+const divideButton = document.getElementById("divide");
 divideButton.onclick = divide;
 
-var factorialButton = document.getElementById("fact");
+const factorialButton = document.getElementById("fact");
 factorialButton.onclick = fact;
 
-var sinusButton = document.getElementById("sin");
+const sinusButton = document.getElementById("sin");
 sinusButton.onclick = sin;
 
-var cosinusButton = document.getElementById("cos");
+const cosinusButton = document.getElementById("cos");
 cosinusButton.onclick = cos;
 
-var tangensButton = document.getElementById("tg");
+const tangensButton = document.getElementById("tg");
 tangensButton.onclick = tg;
 
-var cotangensButton = document.getElementById("ctg");
+const cotangensButton = document.getElementById("ctg");
 cotangensButton.onclick = ctg;
 
+const percentButton = document.getElementById("percent");
+percentButton.onclick = percent;

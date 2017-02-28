@@ -1,49 +1,69 @@
+function setInputValue(number) {
+    let buf;
+    number = number.toString();
+    if (number.substring(0, 1) == "0" && number.length >= 2 && number.substring(1, 2) != ".") {
+        number = number.substring(1);
+    }
+    if (!isNumber(number)) {
+    } else {
+        if (number.substring(number.length - 1) === '.') {
+            buf = number;
+        } else if (number.length > 0) {
+            buf = makeNumberGreatAgain(number);
+        } else {
+            buf = 0;
+        }
+        console.log(buf, isNaN(buf));
+        if (!isNaN(buf) && buf != Infinity) {
+            input.value = buf;
+        } else {
+            input.value = "Impossible";
+            finalize = true;
+        }
+    }
+}
+
+function getInputValue() {
+    return input.value;
+}
+
 function onNumberClick(event) {
-    var button = event.currentTarget;
-    var temp;
+    const button = event.currentTarget;
     if (finalize) {
-        clear();
         finalize = false;
+        setInputValue(0);
     }
-    temp = input.value + button.textContent;
-    if (isNumber(temp) && temp.length < 11) {
-        input.value = temp;
-    }
-    if (input.value.substring(0, 1) == "0" && input.value.substring(1, 2) != ".") {
-        input.value = input.value.substring(1, input.value.length);
-        emptyInputCheck();
+    const inputValue = getInputValue();
+    if (inputValue.length < 11) {
+        setInputValue(inputValue + button.textContent);
     }
 }
 
 function deleteLast() {
-    if (!input.value.includes("e")) {
-        input.value = input.value.substring(0, input.value.length - 1);
-        emptyInputCheck();
-    }
-}
-
-function emptyInputCheck() {
-    if (input.value.length == 0) {
-        input.value = "0";
+    const inputValue = getInputValue();
+    if (!inputValue.includes("e")) {
+        setInputValue(inputValue.substring(0, inputValue.length - 1));
     }
 }
 
 function clear() {
-    input.value = "0";
+    setInputValue(0);
 }
 
 function clearAll() {
-    input.value = "0";
-    firstValue = true;
+    setInputValue(0);
+    firstValue = null;
+    secondValue = null;
     finalize = false;
 }
 
 function plusMinus() {
-    if (input.value != "0") {
-        if (input.value.substring(0, 1) != "-") {
-            input.value = "-" + input.value;
+    const inputValue = getInputValue();
+    if (inputValue != "0") {
+        if (inputValue.substring(0, 1) != "-") {
+            setInputValue("-" + inputValue);
         } else {
-            input.value = input.value.substring(1, input.value.length);
+            setInputValue(inputValue.substring(1, inputValue.length));
         }
     }
 }
@@ -51,8 +71,3 @@ function plusMinus() {
 function isNumber(possibleNumber) {
     return parseFloat(possibleNumber) == possibleNumber;
 }
-
-function checkInput() {
-    alert("Ok")
-}
-
