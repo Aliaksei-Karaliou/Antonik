@@ -16,7 +16,11 @@ function inverseNumber() {
 }
 
 function squareRoot() {
-    setInputValue(Math.sqrt(getInputValue()));
+    if (getInputValue() >= 0) {
+        setInputValue(Math.sqrt());
+    } else {
+        setInputValue(Infinity);
+    }
     finalize = true;
 }
 
@@ -97,24 +101,24 @@ function degreeToRadian(degree) {
     return degree * Math.PI / 180;
 }
 
-function sin() {
-    setInputValue(Math.sin(degreeToRadian(getInputValue())));
+function sinh() {
+    setInputValue(Math.sinh(getInputValue()));
     finalize = true;
 }
 
-function cos() {
-    setInputValue(Math.cos(degreeToRadian(getInputValue())));
+function cosh() {
+    setInputValue(Math.cosh(getInputValue()));
     finalize = true;
 }
 
 
-function tg() {
-    setInputValue(Math.tan(degreeToRadian(getInputValue())));
+function tgh() {
+    setInputValue(Math.tanh(getInputValue()));
     finalize = true;
 }
 
-function ctg() {
-    setInputValue(1 / Math.tan(degreeToRadian(getInputValue())));
+function ctgh() {
+    setInputValue(1 / Math.tanh(getInputValue()));
     finalize = true;
 }
 
@@ -126,6 +130,11 @@ function percent() {
         setInputValue(secondValue);
         console.log(firstValue, secondValue);
     }
+}
+
+function pi() {
+    setInputValue(Math.PI);
+    finalize = true;
 }
 
 function makeNumberGreatAgain(number) {

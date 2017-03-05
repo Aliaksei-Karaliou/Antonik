@@ -63,17 +63,20 @@ divideButton.onclick = divide;
 const factorialButton = document.getElementById("fact");
 factorialButton.onclick = fact;
 
-const sinusButton = document.getElementById("sin");
-sinusButton.onclick = sin;
+const sinusButton = document.getElementById("sinh");
+sinusButton.onclick = sinh;
 
-const cosinusButton = document.getElementById("cos");
-cosinusButton.onclick = cos;
+const cosinusButton = document.getElementById("cosh");
+cosinusButton.onclick = cosh;
 
-const tangensButton = document.getElementById("tg");
-tangensButton.onclick = tg;
+const tangensButton = document.getElementById("tgh");
+tangensButton.onclick = tgh;
 
-const cotangensButton = document.getElementById("ctg");
-cotangensButton.onclick = ctg;
+const cotangensButton = document.getElementById("ctgh");
+cotangensButton.onclick = ctgh;
 
 const percentButton = document.getElementById("percent");
 percentButton.onclick = percent;
+
+const piButton = document.getElementById("pi");
+piButton.onclick = pi;

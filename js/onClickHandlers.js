@@ -42,7 +42,11 @@ function onNumberClick(event) {
 function deleteLast() {
     const inputValue = getInputValue();
     if (!inputValue.includes("e")) {
-        setInputValue(inputValue.substring(0, inputValue.length - 1));
+        if (inputValue.length != 1 && (inputValue.length != 2 || inputValue.substring(0, 1) !== '-') && !finalize) {
+            setInputValue(inputValue.substring(0, inputValue.length - 1));
+        } else {
+            setInputValue(0);
+        }
     }
 }
 
