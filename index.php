@@ -1,7 +1,8 @@
+<!--<!DOCTYPE html>-->
 <html>
 <title>Lab 5</title>
 <body>
-<form>
+<form method="post">
     <div>Input array size:</div>
     <input type='text' name="array_size" value="<?php
     if (isset($_REQUEST['array_size']) && is_numeric($_REQUEST['array_size']) && $_REQUEST['array_size'] >= 1 && $_REQUEST['array_size'] <= 30) {
@@ -13,7 +14,6 @@
     <?php
     const ARRAY_SIZE_TYPE_ERROR = "Array size should be number";
     const ARRAY_SIZE_ERROR = "Array size should be between 1 and 30";
-
     function get_array_size()
     {
         if (isset($_REQUEST['array_size'])) {
@@ -64,7 +64,6 @@
             echo "<input type='text' name='array$i' placeholder='array[$i]' value=$value>";
         }
         echo "<br><input type='submit' value=\"Set array\" name='array_button'><br>";
-
         if (isset($_REQUEST['array_button'])) {
             $array = array();
             $error = false;
@@ -83,7 +82,6 @@
             if (!$error) {
                 echo "Straight array:<br>";
                 echoArray($array);
-
                 echo "<br>Reverse array:<br>";
                 swapArray($array);
                 echoArray($array);
