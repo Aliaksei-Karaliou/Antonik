@@ -1,0 +1,1 @@
+document.getElementById('banner100x100').innerHTML = '<a href="http://byfly-guest.com/" target="_blank"><img src="http://banner.grodno.net/banners_100x100/100x100_byfly.gif" width="100" height="100" border="0" alt=""></a>';

@@ -1,0 +1,33 @@
+function image () {
+	var image = new Array();
+	image[0] = 'sky_over_square.jpg';
+	image[1] = 'header.jpg';
+	image[2] = 'karskogo_library.jpg';
+	image[3]	=	'variant_01.jpg';
+	image[4]	=	'variant_02.jpg';
+	image[5]	=	'variant_03.jpg';
+	image[6]	=	'variant_04.jpg';
+	image[7]	=	'variant_05.jpg';
+	image[8]	=	'variant_06.jpg';
+	image[9]	=	'variant_07.jpg';
+	image[10]	=	'variant_08.jpg';
+	image[11]	=	'variant_09.jpg';
+	image[12]	=	'variant_10.jpg';
+	image[13]	=	'variant_11.jpg';
+	image[14]	=	'variant_12.jpg';
+	image[15]	=	'variant_13.jpg';
+	image[16]	=	'variant_14.jpg';
+	image[17]	=	'variant_15.jpg';
+
+	var total_images = 18;
+	var i = rand_number(total_images);
+	document.write ('<img src="http://forum.grodno.net/Images/banners/'+image[i]+'" border=0 alt="Это наш город">');
+}
+
+function rand_number(n)
+{
+	var x;
+	x=Math.round(Math.random()*100);
+	x%=n;
+	return x;
+}
