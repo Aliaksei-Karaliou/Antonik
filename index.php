@@ -6,10 +6,11 @@
     <style>
         input, textarea, select {
             position: absolute;
-            left: 10%;
+            left: 12%;
         }
 
-        .field {
+        .field, button {
+            display: block;
             margin-top: 1em;
         }
     </style>
@@ -22,15 +23,19 @@
         <input type="text" name="name" required>
     </div>
     <div class="field">
-        <label>Frequency*</label>
-        <input type="number" step="0.01" name="frequency" required>
-    </div>
-    <div class="field">
         <label>Theme*</label>
         <select name="theme" required>
             <?php
             include "php/select.php";
             editSelect("sources/channel-themes.txt");
+            ?>
+        </select>
+    </div>
+    <div class="field">
+        <label>Broadcasted country</label>
+        <select name="country">
+            <?php
+            editSelect("sources/countries.txt");
             ?>
         </select>
     </div>

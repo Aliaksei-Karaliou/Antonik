@@ -4,7 +4,7 @@ class Channel
 {
     private $name;
     private $description;
-    private $frequency;
+    private $country;
     private $theme;
     private $site;
     private $owner;
@@ -13,19 +13,65 @@ class Channel
      * Channel constructor.
      * @param $name
      * @param $description
-     * @param $frequency
+     * @param $country
      * @param $theme
      * @param $site
      * @param $owner
      */
-    public function __construct($name, $description, $frequency, $theme, $site, $owner)
+    private function __construct($name, $description, $country, $theme, $site, $owner)
     {
         $this->name = $name;
         $this->description = $description;
-        $this->frequency = $frequency;
+        $this->country = $country;
         $this->theme = $theme;
         $this->site = $site;
         $this->owner = $owner;
+    }
+
+    /**
+     * Channel constructor.
+     * @param $name
+     * @param $description
+     * @param $country
+     * @param $theme
+     * @param $site
+     * @param $owner
+     * @return Channel
+     */
+    public static function createInstanceFromFields($name, $description, $country, $theme, $site, $owner)
+    {
+        return new Channel($name, $description, $country, $theme, $site, $owner);
+    }
+
+    /**
+     * Channel constructor.
+     * @param  $array
+     * @return Channel
+     */
+    public static function createInstanceFromArray(array $array)
+    {
+        $name = "";
+        $description = "";
+        $country = "";
+        $theme = "";
+        $site = "";
+        $owner = "";
+        foreach ($array as $key => $value) {
+            if ($key === 'name') {
+                $name = $value;
+            } elseif ($key === 'description') {
+                $description = $value;
+            } elseif ($key === 'country') {
+                $country = $value;
+            } elseif ($key == 'theme') {
+                $theme = $value;
+            } elseif ($key == 'site') {
+                $site = $value;
+            } elseif ($key == 'owner') {
+                $owner = $value;
+            }
+        }
+        return new Channel($name, $description, $country, $theme, $site, $owner);
     }
 
 
@@ -48,9 +94,9 @@ class Channel
     /**
      * @return mixed
      */
-    public function getFrequency()
+    public function getCountry()
     {
-        return $this->frequency;
+        return $this->country;
     }
 
     /**
@@ -82,7 +128,7 @@ class Channel
         return array(
             "name" => $this->name,
             "description" => $this->description,
-            "frequency" => $this->frequency,
+            "country" => $this->country,
             "theme" => $this->theme,
             "site" => $this->site,
             "owner" => $this->owner
