@@ -17,7 +17,7 @@
 </head>
 <body>
 <h1>Adding new channel</h1>
-<form method="get" action="php/add-channel-script.php">
+<form method="post" action="php/add-channel-script.php">
     <div class="field">
         <label>Name*</label>
         <input type="text" name="name" required>

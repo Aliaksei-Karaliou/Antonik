@@ -48,7 +48,7 @@ class Channel
      * @param  $array
      * @return Channel
      */
-    public static function createInstanceFromArray(array $array)
+    public static function createInstanceFromArray($array)
     {
         $name = "";
         $description = "";
@@ -63,11 +63,11 @@ class Channel
                 $description = $value;
             } elseif ($key === 'country') {
                 $country = $value;
-            } elseif ($key == 'theme') {
+            } elseif ($key === 'theme') {
                 $theme = $value;
-            } elseif ($key == 'site') {
+            } elseif ($key === 'site') {
                 $site = $value;
-            } elseif ($key == 'owner') {
+            } elseif ($key === 'owner') {
                 $owner = $value;
             }
         }
