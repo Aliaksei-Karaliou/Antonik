@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+}
+
+.content {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+header {
+    background: black;
+    height: 50px;
+}
+
+header ul {
+    padding: 0;
+    height: inherit;
+}
+
+header ul li {
+    height: inherit;
+    list-style-type: none;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+header ul li a {
+    display: table-cell;
+    vertical-align: middle;
+    height: inherit;
+    color: white;
+    text-decoration: none;
+}
+
+header ul li:hover {
+    background: #333;
+}
+
+input, textarea, select {
+    position: absolute;
+    left: 200px;
+    width: 250px;
+    float: left;
+}
+
+textarea {
+    resize: none;
+}
+
+.field, button {
+    display: block;
+    margin-top: 1em;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+}
+
+th {
+    background: yellow;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}

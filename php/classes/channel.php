@@ -8,6 +8,8 @@ class Channel
     private $theme;
     private $site;
     private $owner;
+    private $startYear;
+    private $cable;
 
     /**
      * Channel constructor.
@@ -17,8 +19,10 @@ class Channel
      * @param $theme
      * @param $site
      * @param $owner
+     * @param $startYear
+     * @param $cable
      */
-    private function __construct($name, $description, $country, $theme, $site, $owner)
+    public function __construct($name, $description, $country, $theme, $site, $owner, $startYear, $cable)
     {
         $this->name = $name;
         $this->description = $description;
@@ -26,7 +30,10 @@ class Channel
         $this->theme = $theme;
         $this->site = $site;
         $this->owner = $owner;
+        $this->startYear = $startYear;
+        $this->cable = $cable;
     }
+
 
     /**
      * Channel constructor.
@@ -38,9 +45,9 @@ class Channel
      * @param $owner
      * @return Channel
      */
-    public static function createInstanceFromFields($name, $description, $country, $theme, $site, $owner)
+    public static function createInstanceFromFields($name, $description, $country, $theme, $site, $owner, $startYear, $cable)
     {
-        return new Channel($name, $description, $country, $theme, $site, $owner);
+        return new Channel($name, $description, $country, $theme, $site, $owner, $startYear, $cable);
     }
 
     /**
@@ -56,6 +63,8 @@ class Channel
         $theme = "";
         $site = "";
         $owner = "";
+        $startYear = "";
+        $cable = "";
         foreach ($array as $key => $value) {
             if ($key === 'name') {
                 $name = $value;
@@ -69,9 +78,13 @@ class Channel
                 $site = $value;
             } elseif ($key === 'owner') {
                 $owner = $value;
+            } elseif ($key === 'startYear') {
+                $startYear = $value;
+            } elseif ($key === 'cable') {
+                $cable = $value;
             }
         }
-        return new Channel($name, $description, $country, $theme, $site, $owner);
+        return new Channel($name, $description, $country, $theme, $site, $owner, $startYear, $cable);
     }
 
 
@@ -123,6 +136,22 @@ class Channel
         return $this->owner;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getStartYear()
+    {
+        return $this->startYear;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isCable()
+    {
+        return $this->cable;
+    }
+
     public function expose()
     {
         return array(
@@ -131,7 +160,9 @@ class Channel
             "country" => $this->country,
             "theme" => $this->theme,
             "site" => $this->site,
-            "owner" => $this->owner
+            "owner" => $this->owner,
+            "startYear" => $this->startYear,
+            "cable" => $this->cable
         );
     }
 
