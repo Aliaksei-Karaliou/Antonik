@@ -1,74 +1,65 @@
 <?php
+
 class Channel
 {
     private $name;
-    private $description;
-    private $country;
     private $theme;
+    private $country;
     private $site;
     private $owner;
     private $startYear;
+    private $address;
     private $cable;
+    private $youtube;
+    private $vk;
 
     /**
      * Channel constructor.
      * @param $name
-     * @param $description
-     * @param $country
      * @param $theme
+     * @param $country
      * @param $site
      * @param $owner
      * @param $startYear
+     * @param $address
      * @param $cable
+     * @param $youtube
+     * @param $vk
      */
-    public function __construct($name, $description, $country, $theme, $site, $owner, $startYear, $cable)
+    private function __construct($name, $theme, $country, $site, $owner, $startYear, $address, $cable, $youtube, $vk)
     {
         $this->name = $name;
-        $this->description = $description;
-        $this->country = $country;
         $this->theme = $theme;
+        $this->country = $country;
         $this->site = $site;
         $this->owner = $owner;
         $this->startYear = $startYear;
+        $this->address = $address;
         $this->cable = $cable;
+        $this->youtube = $youtube;
+        $this->vk = $vk;
     }
 
-
-    /**
-     * Channel constructor.
-     * @param $name
-     * @param $description
-     * @param $country
-     * @param $theme
-     * @param $site
-     * @param $owner
-     * @return Channel
-     */
-    public static function createInstanceFromFields($name, $description, $country, $theme, $site, $owner, $startYear, $cable)
+    public static function createInstanceFromFields($name, $theme, $country, $site, $owner, $startYear, $address, $cable, $youtube, $vk)
     {
-        return new Channel($name, $description, $country, $theme, $site, $owner, $startYear, $cable);
+        return new Channel($name, $theme, $country, $site, $owner, $startYear, $address, $cable, $youtube, $vk);
     }
 
-    /**
-     * Channel constructor.
-     * @param  $array
-     * @return Channel
-     */
     public static function createInstanceFromArray($array)
     {
         $name = "";
-        $description = "";
+        $address = "";
         $country = "";
         $theme = "";
         $site = "";
         $owner = "";
         $startYear = "";
         $cable = "";
+        $youtube = "";
+        $vk = "";
         foreach ($array as $key => $value) {
             if ($key === 'name') {
                 $name = $value;
-            } elseif ($key === 'description') {
-                $description = $value;
             } elseif ($key === 'country') {
                 $country = $value;
             } elseif ($key === 'theme') {
@@ -81,11 +72,16 @@ class Channel
                 $startYear = $value;
             } elseif ($key === 'cable') {
                 $cable = $value;
+            } elseif ($key === 'address') {
+                $address = $value;
+            } elseif ($key === 'youtube') {
+                $youtube = $value;
+            } elseif ($key === 'vk') {
+                $vk = $value;
             }
         }
-        return new Channel($name, $description, $country, $theme, $site, $owner, $startYear, $cable);
+        return new Channel($name, $theme, $country, $site, $owner, $startYear, $address, $cable, $youtube, $vk);
     }
-
 
     /**
      * @return mixed
@@ -98,9 +94,9 @@ class Channel
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getTheme()
     {
-        return $this->description;
+        return $this->theme;
     }
 
     /**
@@ -109,14 +105,6 @@ class Channel
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTheme()
-    {
-        return $this->theme;
     }
 
     /**
@@ -146,24 +134,48 @@ class Channel
     /**
      * @return mixed
      */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @return mixed
+     */
     public function isCable()
     {
         return $this->cable;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getYoutube()
+    {
+        return $this->youtube;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVk()
+    {
+        return $this->vk;
     }
 
     public function expose()
     {
         return array(
             "name" => $this->name,
-            "description" => $this->description,
-            "country" => $this->country,
             "theme" => $this->theme,
+            "country" => $this->country,
             "site" => $this->site,
             "owner" => $this->owner,
             "startYear" => $this->startYear,
-            "cable" => $this->cable
+            "address" => $this->address,
+            "cable" => $this->cable,
+            "youtube" => $this->youtube,
+            "vk" => $this->vk,
         );
     }
-
-
 }

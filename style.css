@@ -50,7 +50,6 @@ textarea {
 }
 
 .field, button {
-    display: block;
     margin-top: 1em;
 }
 
@@ -64,7 +63,11 @@ th {
     background: yellow;
 }
 
-a{
+a {
     color: black;
     text-decoration: none;
+}
+
+tr:hover {
+    background: greenyellow;
 }
