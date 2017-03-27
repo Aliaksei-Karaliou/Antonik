@@ -1,5 +1,4 @@
 <?php
-
 class Channel
 {
     private $name;

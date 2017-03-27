@@ -7,10 +7,10 @@
 </head>
 <body>
 <?php
-include "header.html";
+include_once "header.html";
 ?>
 <div class="content">
-    <form method="get">
+    <form method="post" enctype="multipart/form-data">
         <div class="field">
             <label>Name*</label>
             <input type="text" name="name" required>
@@ -19,8 +19,9 @@ include "header.html";
             <label>Theme*</label>
             <select name="theme" required>
                 <?php
-                include "php/select.php";
-                editSelect("sources/channel-themes.txt");
+                include "php/select_helper.php";
+                $themes = selectHelp("sources/channel-themes.txt");
+                echo $themes;
                 ?>
             </select>
         </div>
@@ -28,7 +29,8 @@ include "header.html";
             <label>Broadcasted country</label>
             <select name="country">
                 <?php
-                editSelect("sources/countries.txt");
+                $countries = selectHelp("sources/countries.txt");
+                echo $countries;
                 ?>
             </select>
         </div>
@@ -38,6 +40,7 @@ include "header.html";
         </div>
         <div class="field">
             <label>Logo</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="300000"/>
             <input type="file" name="logo" accept=".png,.jpg">
         </div>
         <div class="field">
@@ -61,23 +64,21 @@ include "header.html";
         <?php
 
         if (isset($_REQUEST["submit"])) {
-            include "php/classes/channel.php";
-            $channel = Channel::createInstanceFromFields($_REQUEST["name"], $_REQUEST["description"], $_REQUEST["country"], $_REQUEST["theme"], $_REQUEST["site"], $_REQUEST["owner"], $_REQUEST["startYear"], isset($_REQUEST["cable"]) ? true : false);
-            $array = array();
-            $path = "files/channels.json";
+            require_once "php/classes/channel.php";
+            require_once "php/get_json_list.php";
 
-            if (file_exists($path) && filesize($path) > 0) {
-                $file = fopen($path, "a+");
-                $json = json_decode(fread($file, filesize($path)));
-                foreach ($json as $item) {
-                    array_push($array, $item);
-                }
-            }
+            $channel = Channel::createInstanceFromFields($_REQUEST["name"], $_REQUEST["description"], $_REQUEST["country"], $_REQUEST["theme"], $_REQUEST["site"], $_REQUEST["owner"], $_REQUEST["startYear"], isset($_REQUEST["cable"]) ? true : false);
+            $path = "files/channels.json";
+            $array = getJsonList($path);
             $file = fopen($path, "w+");
             if ($channel != null) {
                 array_push($array, $channel->expose());
             }
             fwrite($file, json_encode($array));
+
+            require_once "php/photo_uploader.php";
+            $name = $_REQUEST["name"];
+            upload("files/logo/$name", "logo");
         }
         ?>
     </form>
