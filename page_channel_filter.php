@@ -16,7 +16,7 @@ include_once "header.html";
         include "php/file_line_reader.php";
         $themes = selectHelp("sources/channel-themes.txt");
         $countries = selectHelp("sources/countries.txt");
-        echo " <form method=\"post\">
+        echo " <form method=\"get\">
         <div class=\"field\">
             <label>Name</label>
             <input type=\"text\" name=\"name\">

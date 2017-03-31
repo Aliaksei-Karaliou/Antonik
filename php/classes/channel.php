@@ -163,6 +163,10 @@ class Channel
         return $this->vk;
     }
 
+    /**
+     * @return array
+     */
+
     public function expose()
     {
         return array(

@@ -5,10 +5,17 @@ function selectHelp($file)
     $result = "<option></option>";
     if ($file) {
         while (($line = fgets($file)) !== false) {
-            $result .= "<option>$line</option>";
+            $trimed = trim($line);
+            $result .= "<option value='$trimed'>$trimed</option>";
         }
     }
     return $result;
+}
+
+function selectedHelp($select, $selected)
+{
+    $select = str_replace("selected", "", $select);
+    return str_replace("<option value=\'$selected\'>$selected</option>", "<option value=\'$selected\' selected>$selected</option>", $select);
 }
 
 function getAllLines($file)

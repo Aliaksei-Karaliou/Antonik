@@ -31,7 +31,6 @@ include_once "header.html"
         $array = init();
         drawChannelTable($array);
         ?>
-    </table>
 </div>
 </body>
 </html>
